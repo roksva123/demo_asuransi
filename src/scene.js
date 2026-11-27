@@ -21,7 +21,7 @@ function addOrbitObjects(group) {
     const shape = i % 3 === 0 ? new THREE.BoxGeometry(0.33, 0.52, 0.25) : i % 3 === 1 ? new THREE.CylinderGeometry(0.16, 0.16, 0.09, isSmall ? 10 : 16) : new THREE.OctahedronGeometry(0.18, 0);
     const mesh = new THREE.Mesh(shape, mats[i % mats.length]);
     mesh.rotation.set(Math.random(), Math.random(), Math.random()); holder.add(mesh);
-    const angle = (i / count) * Math.PI * 2; const radius = isSmall ? 1.9 : 2.1 + (i % 2) * 0.35;
+    const angle = (i / count) * Math.PI * 2; const radius = isSmall ? 1.65 : 1.85 + (i % 2) * 0.25;
     holder.position.set(Math.cos(angle) * radius, Math.sin(angle) * radius * 0.62, (i % 3 - 1) * 0.3);
     holder.userData = { angle, radius, speed: 0.18 + i * 0.012, yScale: 0.62 };
     group.add(holder); objects.push(holder);
@@ -31,7 +31,7 @@ function addOrbitObjects(group) {
 
 function setupScene(canvas, compact = false) {
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 100); camera.position.set(0, 0.15, compact ? 7 : 7.4);
+  const camera = new THREE.PerspectiveCamera(36, 1, 0.1, 100); camera.position.set(0, 0.15, compact ? 7.6 : 8.2);
   const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: !isSmall });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, isSmall ? 1.5 : 2)); renderer.outputColorSpace = THREE.SRGBColorSpace;
   const root = new THREE.Group(); scene.add(root);
