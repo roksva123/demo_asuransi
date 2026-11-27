@@ -23,3 +23,42 @@ main{position:relative}.hero{min-height:100svh;max-width:1600px;margin:auto;padd
 /* Final overrides: hero badge, desktop navigation, typography, and safe canvas frame */
 .hero-copy{display:flex;flex-direction:column;align-items:flex-start;gap:0}.hero-copy>*{position:static}.hero-badge-ojk{position:static;display:inline-flex;align-items:center;gap:8px;margin-top:32px;font-size:13px}.hero-title{margin-bottom:28px;line-height:1.05}.hero-sub{margin-bottom:32px;max-width:48ch}.hero-art .canvas-wrap{width:100%;overflow:visible;padding:clamp(32px,4vw,72px)}.hero-art .canvas-wrap canvas{width:100%;height:100%;overflow:visible}.hero-art:before{display:none}
 @media(min-width:1024px){.nav{height:68px}.nav-links{gap:40px}.nav-links a{font-size:16px;font-weight:500;padding:8px 4px}.nav-cta{font-size:16px;font-weight:600;padding:14px 26px}.brand,.nav-logo{font-size:26px}p,.body-text{font-size:18px;line-height:1.65}.lead{font-size:22px;line-height:1.5}.mono-label{font-size:13px;letter-spacing:.14em}.legal-item{font-size:16px;min-height:56px}.legal-item span:last-child{font-size:13px}.timeline-year{font-size:14px}.timeline h3{font-size:24px}.timeline p{font-size:16px}.button,.btn,.btn-secondary{font-size:16px}.hero-copy{width:55%}.hero-line{display:block;white-space:nowrap}.hero-title{font-size:clamp(2.75rem,5.2vw,6rem)}.hero-title em{text-decoration-thickness:4px;text-underline-offset:6px}.section-title{font-size:clamp(2.25rem,4.2vw,4.5rem)}}
+
+/* Mobile consultation and simulation overflow corrections */
+@media (max-width: 767px) {
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { max-width: 100%; overflow-x: clip; }
+  .consult-section, .consultation-section { padding-inline: 20px; padding-bottom: max(96px, calc(96px + env(safe-area-inset-bottom))); }
+  .consult-grid, .consult-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; width: 100%; min-width: 0; }
+  .consult-grid > *, .consult-layout > * { min-width: 0; max-width: 100%; }
+  .consultation-section .calendar, .consultation-section .consultant { width: 100%; max-width: 100%; min-width: 0; margin: 0; }
+  .consultation-section .calendar { padding: 20px; }
+  .consultation-section .consultant { padding: 24px 0 0; border: 0; border-top: 1px solid var(--warm); }
+  .consultation-section .portrait { width: 100%; max-width: 100%; height: auto; aspect-ratio: 4 / 3; margin: 0 0 24px; }
+  .consultation-section .portrait::before { top: 12%; left: 39%; width: 22%; height: auto; aspect-ratio: 1; }
+  .consultation-section .portrait::after { left: 24%; width: 52%; height: auto; aspect-ratio: 1; }
+  .consultation-section .rating { display: flex; flex-wrap: wrap; gap: 6px 10px; max-width: 100%; }
+  .consultation-section .consult-actions { display: grid; grid-template-columns: 1fr; gap: 12px; width: 100%; }
+  .consultation-section .consult-actions .button { width: 100%; min-height: 52px; }
+  .consultation-section #book-slot { display: flex; width: 100%; min-height: 52px; margin-top: 24px !important; }
+  .sim-inputs, .sim-panel, .sim-card, .calc-panel { max-height: none !important; height: auto !important; overflow: visible !important; min-width: 0; width: 100%; }
+  #simulasi { padding-bottom: max(96px, calc(96px + env(safe-area-inset-bottom))); }
+  #simulasi .calculator-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; width: 100%; min-width: 0; }
+  #simulasi .calc-panel { display: block; }
+  #simulasi .calc-panel .field { margin-bottom: 24px; }
+  #simulasi #insurance-type, #simulasi #plan { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; width: 100%; overflow: visible; }
+  #simulasi #insurance-type button, #simulasi #plan button { min-width: 0; width: 100%; padding-inline: 4px; font-size: 15px; white-space: nowrap; }
+  #simulasi input[type="range"] { width: 100%; height: 44px; }
+  #simulasi .result { position: static !important; display: block !important; width: 100%; max-width: 100%; min-width: 0; height: auto !important; max-height: none !important; overflow: visible !important; padding: 0; background: transparent; border: 0; }
+  #simulasi .result .calc-scene { display: block; width: 100%; height: 220px; margin: 0 0 20px; }
+  #simulasi .result .calc-scene canvas { width: 100%; height: 100%; }
+  #simulasi .result .eyebrow { display: block; margin: 0 0 8px; }
+  #simulasi .result .result-number { display: block; margin: 0 0 20px; font-size: clamp(2.25rem, 10vw, 3rem); line-height: 1; white-space: nowrap; }
+  #simulasi .result .result-note { display: block; margin: 0 0 20px; font-size: 16px; }
+  #simulasi .result .bars { display: none; }
+  #simulasi .result .breakdown { display: block; margin: 0 0 20px; }
+  #simulasi .result .break-row { display: flex; width: 100%; min-width: 0; font-size: 16px; }
+  #simulasi .result > .button { display: flex; width: 100%; min-height: 56px; margin: 0 !important; white-space: nowrap; }
+  .footer { padding-bottom: max(96px, calc(96px + env(safe-area-inset-bottom))); }
+}
+
